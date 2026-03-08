@@ -1,0 +1,121 @@
+% !Mode:: "TeX:UTF-8"
+% 文件名: appendix_algo.tex
+% 用途: 毕业论文附录A - 算法代码（独立章节，不依赖\chapter）
+
+% 附录A页面
+\clearpage
+{% 使用组隔离格式设置
+
+    % 设置页面样式（保持与正文一致的页眉页脚）
+    % 如果需要无页眉页脚，可以取消下面两行的注释
+    % \thispagestyle{empty}
+    % \pagestyle{empty}
+    
+    % ========== 附录标题 ==========
+    \begin{center}
+        \hei\xiaosan % 黑体小三
+        {附录A \quad 算法代码}
+    \end{center}
+    \vspace{0.8cm} % 标题与正文间距
+    
+    % 添加目录项
+    \addcontentsline{toc}{chapter}{附录A \quad 算法代码} % 添加到目录（章级别）
+    \markboth{附录A \quad 算法代码}{附录A \quad 算法代码} % 设置页眉
+    
+    % ========== 正文内容 ==========
+    {% 宋体小四，1.5倍行距
+        \song\xiaosi
+        \linespread{1.5}\selectfont
+        
+        % 附录前言
+        本附录包含了论文第X章中所涉及的算法核心代码。代码使用Python 3.8编写，依赖的主要库包括NumPy、Pandas和Scikit-learn。
+        
+        \vspace{0.5cm}
+        
+        % ========== A.1 算法1：数据预处理 ==========
+        \noindent {\hei\xiaosi \textbf{A.1 数据预处理算法}} % 黑体小四作为子标题
+        
+        \vspace{0.3cm}
+        \noindent 本算法用于对原始数据进行清洗、归一化和特征工程处理。
+        
+        % 添加到目录（如果需要）
+        \addcontentsline{toc}{subsection}{A.1 数据预处理算法}
+        
+        % 代码展示 - 使用 lstlisting 环境
+        \begin{lstlisting}[language=Python, caption={数据预处理代码}, label={code:preprocess}, frame=single, numbers=left, basicstyle=\ttfamily\footnotesize, keywordstyle=\color{blue}, commentstyle=\color{green!50!black}, stringstyle=\color{red}]
+        import numpy as np
+        import pandas as pd
+        from sklearn.preprocessing import StandardScaler, MinMaxScaler
+        from sklearn.model_selection import train_test_split
+        
+        def preprocess_data(data_path, target_col, test_size=0.2, scale_method='standard'):
+            """
+            数据预处理函数
+            
+            Parameters:
+            -----------
+            data_path : str
+                数据文件路径
+            target_col : str
+                目标列名
+            test_size : float
+                测试集比例
+            scale_method : str
+                归一化方法: 'standard' 或 'minmax'
+            
+            Returns:
+            --------
+            X_train, X_test, y_train, y_test : 处理后的数据
+            """
+            # 读取数据
+            df = pd.read_csv(data_path)
+            print(f"原始数据形状: {df.shape}")
+            
+            # 处理缺失值
+            df = df.dropna()
+            print(f"删除缺失值后形状: {df.shape}")
+            
+            # 分离特征和目标
+            X = df.drop(columns=[target_col])
+            y = df[target_col]
+            
+            # 处理类别特征（如果有）
+            categorical_cols = X.select_dtypes(include=['object']).columns
+            if len(categorical_cols) > 0:
+                X = pd.get_dummies(X, columns=categorical_cols)
+            
+            # 划分训练集和测试集
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=test_size, random_state=42
+            )
+            
+            # 特征缩放
+            if scale_method == 'standard':
+                scaler = StandardScaler()
+            elif scale_method == 'minmax':
+                scaler = MinMaxScaler()
+            else:
+                raise ValueError("scale_method 必须是 'standard' 或 'minmax'")
+            
+            # 拟合并转换训练集，仅转换测试集
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+            
+            # 转换回DataFrame保持列名
+            X_train = pd.DataFrame(X_train_scaled, columns=X.columns)
+            X_test = pd.DataFrame(X_test_scaled, columns=X.columns)
+            
+            print(f"训练集大小: {X_train.shape}, 测试集大小: {X_test.shape}")
+            
+            return X_train, X_test, y_train, y_test
+        
+        # 使用示例
+        if __name__ == "__main__":
+            X_train, X_test, y_train, y_test = preprocess_data(
+                data_path='./data/raw_data.csv',
+                target_col='target',
+                scale_method='standard'
+            )
+        \end{lstlisting}
+    }
+}

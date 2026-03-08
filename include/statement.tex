@@ -1,0 +1,68 @@
+% !Mode:: "TeX:UTF-8"
+%
+% 诚信声明书与版权授权书
+%
+
+% 声明书页面
+\clearpage
+{% 使用一个组来隔离内部的格式设置，不影响后续文档
+
+% 设置页面格式（无页眉页脚）
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% 1. 标题：毕业论文诚信声明书
+\begin{center}
+    \vspace{1cm}
+    \hei\xiaoer % 黑体小二号
+    {毕业论文诚信声明书}
+\end{center}
+\vspace{1cm} % 标题与正文间距
+
+% 2. 正文内容
+{% 宋体小四
+\song\xiaosi
+本人声明：我所提交的毕业论文（设计）《XXXXXXXXX》是我在指导老师指导下独立研究、写作的成果，论文中所引用他人的无论以何种方式发布的文字、研究成果，均在论文中加以说明；有关教师、同学和其他人员对本文的写作、修订提出过并为我在论文中加以采纳的意见、建议，均已在我的致谢辞中加以说明并深致谢意。
+\vspace{1.5cm} % 正文与签名区域间距
+
+% 3. 签名区域
+\noindent
+论文作者\hspace{1.5cm} （签字）\hfill 时间：\hspace{0.5cm} 20\underline{\hspace{1.5cm}}年\underline{\hspace{1cm}}月\underline{\hspace{1cm}}日\\
+
+\noindent
+指导老师已阅\hspace{1.2cm} （签字）\hfill 时间：\hspace{0.5cm} 20\underline{\hspace{1.5cm}}年\underline{\hspace{1cm}}月\underline{\hspace{1cm}}日
+} % 结束宋体小四
+} % 结束组
+
+\vspace{3cm}
+
+% 授权书页面
+{% 使用另一个组
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% 1. 标题：毕业论文版权使用授权书
+\begin{center}
+    \hei\xiaoer % 黑体小二号
+    {毕业论文版权使用授权书}
+\end{center}
+\vspace{1cm}
+
+% 2. 正文内容
+{% 宋体小四
+\song\xiaosi
+本毕业论文《XXXXXXXXXXXXXXX》是本人在校期间所完成学业的组成部分，是在国际关系学院教师的指导下完成的，因此，本人特授权国际关系学院可将本毕业论文的全部或部分内容编入有关书籍、数据库保存，可采用复制、印刷、网页制作等方式将论文文本和经过编辑、批注等处理的论文文本提供给读者查阅、参考，可向有关学术部门和国家有关教育主管部门呈送复印件和电子文档。本毕业论文无论做何种处理，必须尊重本人的著作权，署明本人姓名。
+\vspace{1.5cm}
+
+% 3. 签名区域
+\noindent
+论文作者\hspace{1.5cm} （签字）\hfill 时间：\hspace{0.5cm} 20\underline{\hspace{1.5cm}}年\underline{\hspace{1cm}}月\underline{\hspace{1cm}}日\\
+
+\noindent
+指导老师已阅\hspace{1.2cm} （签字）\hfill 时间：\hspace{0.5cm} 20\underline{\hspace{1.5cm}}年\underline{\hspace{1cm}}月\underline{\hspace{1cm}}日
+
+} % 结束宋体小四
+} % 结束组
+
+% ---------- 恢复正常的页面样式 ----------
+\clearpage

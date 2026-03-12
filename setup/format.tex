@@ -232,8 +232,6 @@
 \def\myekeywords#1{\def\@myekeywords{#1}}\def\@myekeywords{}
 \def\myheading#1{\def\@myheading{#1}}\def\@myheading{}
 
-
-
 %%%%%%%%%%%%%%%%%%%     Cover     %%%%%%%%%%%%%%%%%%%%%%%
 \def\makecover{
    	\phantomsection   % 创建一个虚拟的章节锚点
@@ -265,17 +263,18 @@
      
             % 5. 信息表格 - 宋体三号
   			\renewcommand\arraystretch{1.5}  % 增加行距
-  			% \setlength{\@title@width}{8cm}   % 下划线宽度
-  			
+  			\def\@lwidth{3.5cm}    % 左列宽度
+            \def\@rwidth{5cm}   % 右列宽度
   			{\song\sanhao{
-                \begin{tabular}{l@{\hspace{3cm}}c}  % 第一列左对齐、中间间隔3cm、第二列居中
-                    % 左列用\makebox固定宽度，实现不同字数两端对齐
-                    \makebox[3.5cm][s]{届别：} & \underline{\makebox[\@title@width][c]{\@mygrade}} \\
-                    \makebox[3.5cm][s]{院系：} & \underline{\makebox[\@title@width][c]{\@myfaculty}} \\
-                    \makebox[3.5cm][s]{专业与方向：} & \underline{\makebox[\@title@width][c]{\@mysubject}} \\
-                    \makebox[3.5cm][s]{姓名：} & \underline{\makebox[\@title@width][c]{\@myname}} \\
-                    \makebox[3.5cm][s]{学号：} & \underline{\makebox[\@title@width][c]{\@mynumber}} \\
-                    \makebox[3.5cm][s]{指导教师：} & \underline{\makebox[\@title@width][c]{\@mysupervisor}} \\
+                \begin{tabular}{l@{\hspace{1.5cm}}c}  % 第一列左对齐、中间间隔2cm、第二列居中
+                    % \makebox[宽度][对齐方式]{内容}
+                    % 用\makebox固定宽度，实现不同字数两端对齐
+                    \makebox[\@lwidth][s]{届别：} & \underline{\makebox[\@rwidth][c]{\@mygrade}} \\
+                    \makebox[\@lwidth][s]{院系：} & \underline{\makebox[\@rwidth][c]{\@myfaculty}} \\
+                    \makebox[\@lwidth][s]{专业与方向：} & \underline{\makebox[\@rwidth][c]{\@mysubject}} \\
+                    \makebox[\@lwidth][s]{姓名：} & \underline{\makebox[\@rwidth][c]{\@myname}} \\
+                    \makebox[\@lwidth][s]{学号：} & \underline{\makebox[\@rwidth][c]{\@mynumber}} \\
+                    \makebox[\@lwidth][s]{指导教师：} & \underline{\makebox[\@rwidth][c]{\@mysupervisor}} \\
                 \end{tabular}
             }}
             

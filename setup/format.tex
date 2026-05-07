@@ -139,7 +139,7 @@
 \newtheorem{conjecture}{猜想~}[chapter]
 \newtheorem{example}{例~}[chapter]
 \newtheorem{remark}{注~}[chapter]
-%\newtheorem{algorithm}{算法~}[chapter]
+% \newtheorem{algorithm}{算法~}[chapter]
 \newenvironment{proof}{\noindent{\hei 证明：}}{\hfill $ \square $ \vskip 4mm}
 \theoremsymbol{$\square$}
 
@@ -173,7 +173,7 @@
     keywordstyle=\color{darkblue}\bfseries,%
     identifierstyle=,%
     commentstyle=\color{darkgreen},%\itshape,%
-    stringstyle=\color{black}%
+    stringstyle=\color{black}%,
 }
 \lstloadlanguages{C,C++,Java,Matlab,Mathematica,Python}
 
@@ -324,7 +324,7 @@
 \def\makecontents{
 	\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{2em}{} %"目录"三号黑体居中
 
-	\clearpage{\pagestyle{empty}\cleardoublepage}
+	\clearpage{\pagestyle{empty}\clearpage}
 	\pdfbookmark[0]{目~~录}{mulu}
 	\tableofcontents                                     % 中文目录
 	\fancypagestyle{plain}{
@@ -353,28 +353,282 @@
 	\renewcommand{\headrulewidth}{0.5pt}
 	\renewcommand{\footrulewidth}{0pt}
 	
-	% 设置开章页的页眉页脚风格
-	% 开章页（plain样式）- 只保留页码
-    % \fancypagestyle{plain}{                              
-        % \fancyhf{}
-        % \fancyfoot[C]{\song\xiaowu ~\thepage~}
-        % \renewcommand{\headrulewidth}{0pt}  % 开章页无页眉线
-    % }
 	\makeatother
 }
 
 %%%%%%%%%%%%%%%%%%%   References   %%%%%%%%%%%%%%%%%%%%%%%
-\def\makereferences{
-	\titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{1em}{}    % "参考文献"小三黑体
-	\chapter*{\bibname}
-	\defaultfont
-	\bibliographystyle{references/ref}
-	\bibliography{references/ref}
+% \def\makereferences{
+% 	\titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{1em}{}    % "参考文献"小三黑体
+% 	\chapter*{\bibname}
+% 	\defaultfont
+% 	\bibliographystyle{references/ref}
+% 	\bibliography{references/ref}
+%         \printbibliography[title={参考文献}]
 
-	\phantomsection
-	\markboth{参考文献}{参考文献}
-	\addcontentsline{toc}{chapter}{参考文献}       % 参考文献加入到中文目录
-	% \nocite{*}                                    % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+% 	\phantomsection
+% 	\markboth{参考文献}{参考文献}
+% 	\addcontentsline{toc}{chapter}{参考文献}       % 参考文献加入到中文目录
+% 	% \nocite{*}                                    % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+% }
+
+% \makeatother
+
+\def\makereferences{
+    \titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{1em}{}
+    \chapter*{\bibname}
+    \defaultfont
+    
+    \begin{thebibliography}{99}
+    
+    % =================== 中文文献 ===================
+    
+    \bibitem{JSYJ202508002}
+    曹荣荣, 柳林, 于艳东, 等. 融合知识图谱的大语言模型研究综述[J]. 计算机应用研究, 2025, 42(08): 2255--2266.
+    
+    \bibitem{XXYD202603012}
+    范文龙, 寇亮, 张纪林, 等. 多方位视角的大型语言模型评估综述[J]. 太赫兹科学与电子信息学报, 2026, 24(03): 367--387.
+    
+    \bibitem{DXKX202511006}
+    蒋献, 王涵亦, 杨诗婷, 等. 基于大语言模型与知识图谱融合的多跳问答技术研究[J]. 电信科学, 2025, 41(11): 67--83.
+    
+    \bibitem{WXYJ202510005}
+    李子骏, 肖辉, 李雪峰. 面向知识密集型任务的检索增强生成技术综述[J]. 微电子学与计算机, 2025, 42(10): 48--65.
+    
+    \bibitem{JSGG202513001}
+    刘雪颖, 云静, 李博, 等. 基于大型语言模型的检索增强生成综述[J]. 计算机工程与应用, 2025, 61(13): 1--25.
+    
+    \bibitem{RJXB202503009}
+    刘泽垣, 王鹏江, 宋晓斌, 等. 大语言模型的幻觉问题研究综述[J]. 软件学报, 2025, 36(03): 1152--1185.
+    
+    \bibitem{WHDY20260130001}
+    毛赟, 符海东, 顾进广, 等. 基于知识图谱的迭代改写检索增强生成方法[J]. 武汉大学学报(理学版), 2026: 1--12.
+    
+    \bibitem{DNBC202601034}
+    潘杰. 大语言模型智能体的分层式架构优化研究[J]. 电脑编程技巧与维护, 2026(01): 115--118.
+    
+    \bibitem{JSJY202503001}
+    秦小林, 古徐, 李弟诚, 等. 大语言模型综述与展望[J]. 计算机应用, 2025, 45(03): 685--696.
+    
+    \bibitem{JSGG202507032}
+    任海玉, 刘建平, 王健, 等. 基于大语言模型的智能问答系统研究综述[J]. 计算机工程与应用, 2025, 61(07): 1--24.
+    
+    \bibitem{MOTO202506016}
+    田永林, 王雨桐, 王兴霞, 等. 从RAG到SAGE:现状与展望[J]. 自动化学报, 2025, 51(06): 1145--1169.
+    
+    \bibitem{GZXG202504002}
+    王航, 黄小平, 甘国操, 等. 基于大型语言模型的异构多智能体系统[J]. 自动化与信息工程, 2025, 46(04): 22--27.
+    
+    \bibitem{JSJA20260316004}
+    王鑫林, 李岩, 马超凡, 等. 检索增强生成（RAG）综述：方法与应用[J]. 计算机科学, 2026: 1--28.
+    
+    \bibitem{JSGG202520002}
+    吴璇, 付涛. 检索增强生成技术研究综述[J]. 计算机工程与应用, 2025, 61(20): 19--35.
+    
+    \bibitem{PZKX202602016}
+    奚志恒, 陈文翔, 郭昕, 等. 基于大语言模型的智能体:发展与未来展望[J]. 中国科学:信息科学, 2026, 56(02): 485--486.
+    
+    \bibitem{JSJX202602008}
+    袁乐, 刘绍华, 王禹, 等. 大语言模型检索增强生成优化技术研究综述[J]. 计算机学报, 2026, 49(02): 383--422.
+    
+    \bibitem{JSJA202501001}
+    曾泽凡, 胡星辰, 成清, 等. 基于预训练语言模型的知识图谱研究综述[J]. 计算机科学, 2025, 52(01): 1--33.
+    
+    \bibitem{FMYZ202502002}
+    张超然, 梁素平, 杨杰, 等. 基于大模型RAG架构的专利检索Agent研究[J]. 中国发明与专利, 2025, 22(02): 14--25.
+    
+    \bibitem{IGXN202410016}
+    赵静, 汤文玉, 霍钰, 等. 大模型检索增强生成（RAG）技术浅析[J]. 中国信息化, 2024(10): 71--72, 70.
+
+    \bibitem{JSJC20251215002}
+    赵莹莹, 朱率率. 知识图谱构建技术研究综述[J]. 计算机工程, 2025: 1--21.
+    
+    \bibitem{1025361036.nh}
+    郑伟杰. 基于大语言模型的运维知识检索与多智能体协同框架[D]. 北京化工大学, 2025.
+
+    \bibitem{DNZS202519010}
+    周思俊, 张昊, 王国明. 知识图谱研究综述[J]. 电脑知识与技术, 2025, 21(19): 37--41.
+    
+    % =================== 英文文献 ===================
+    
+    \bibitem{anthropic2025claudecode}
+    Anthropic. Claude Code: Agentic Coding Assistant[EB/OL]. 2025. \url{https://code.claude.com/docs/en/overview}. Accessed: 2025-12-04.
+    
+    \bibitem{asai2023self}
+    Asai A, Wu Z, Wang Y, et al. Self-rag: Learning to Retrieve, Generate, and Critique through Self-reflection[C]//The Twelfth International Conference on Learning Representations, 2023.
+    
+    \bibitem{besrour2025ragenta}
+    Besrour I, He J, Schreieder T, et al. Ragenta: Multi-agent Retrieval-augmented Generation for Attributed Question Answering[J]. arXiv preprint arXiv:2506.16988, 2025.
+    
+    \bibitem{chan2024rq}
+    Chan C M, Xu C, Yuan R, et al. Rq-rag: Learning to Refine Queries for Retrieval Augmented Generation[J]. arXiv preprint arXiv:2404.00610, 2024.
+    
+    \bibitem{chen2025improving}
+    Chen Y, Yan L, Sun W, et al. Improving Retrieval-augmented Generation through Multi-agent Reinforcement Learning[J]. arXiv preprint arXiv:2501.15228, 2025.
+    
+    \bibitem{cohen2024evaluating}
+    Cohen R, Biran E, Yoran O, et al. Evaluating the Ripple Effects of Knowledge Editing in Language Models[J]. Transactions of the Association for Computational Linguistics, 2024, 12: 283--298.
+    
+    \bibitem{deepseek2025deepseekr1}
+    DeepSeek-AI. DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning[EB/OL]. 2025. \url{https://deepseek.com/research/deepseek-r1}. Accessed: 2026-03-13.
+    
+    \bibitem{edge2024local}
+    Edge D, Trinh H, Cheng N, et al. From Local to Global: A Graph RAG Approach to Query-focused Summarization[J]. arXiv preprint arXiv:2404.16130, 2024.
+    
+    \bibitem{gao2023retrieval}
+    Gao Y, Xiong Y, Gao X, et al. Retrieval-augmented Generation for Large Language Models: A Survey[J]. arXiv preprint arXiv:2312.10997, 2023, 2(1): 32.
+    
+    \bibitem{google2025gemini3}
+    Google. A New Era of Intelligence with Gemini 3[EB/OL]. 2025. \url{https://deepmind.google/technologies/gemini-3/}. Accessed: 2026-03-13.
+    
+    \bibitem{guo2024lightrag}
+    Guo Z, Xia L, Yu Y, et al. Lightrag: Simple and Fast Retrieval-augmented Generation[J]. arXiv preprint arXiv:2410.05779, 2024, 2(3).
+    
+    \bibitem{gutierrez2024hipporag}
+    Gutiérrez B J, Shu Y, Gu Y, et al. Hipporag: Neurobiologically Inspired Long-term Memory for Large Language Models[C]//Advances in Neural Information Processing Systems, 2024, 37: 59532--59569.
+    
+    \bibitem{gutierrez2025rag}
+    Gutiérrez B J, Shu Y, Qi W, et al. From RAG to Memory: Non-parametric Continual Learning for Large Language Models[J]. arXiv preprint arXiv:2502.14802, 2025.
+    
+    \bibitem{han2025rag}
+    Han H, Ma L, Shomer H, et al. RAG vs. GraphRAG: A Systematic Evaluation and Key Insights[J]. arXiv preprint arXiv:2502.11371, 2025.
+    
+    \bibitem{ho2020constructing}
+    Ho X, Nguyen A K D, Sugawara S, et al. Constructing a Multi-hop QA Dataset for Comprehensive Evaluation of Reasoning Steps[C]//Proceedings of the 28th International Conference on Computational Linguistics, 2020: 6609--6625.
+    
+    \bibitem{hoelscher2023detecting}
+    Hoelscher-Obermaier J, Persson J, Kran E, et al. Detecting Edit Failures in Large Language Models: An Improved Specificity Benchmark[C]//Findings of the ACL: ACL 2023, 2023: 11548--11559.
+    
+    \bibitem{huang2025retrieval}
+    Huang H, Huang Y, Yang J, et al. Retrieval-augmented Generation with Hierarchical Knowledge[J]. arXiv preprint arXiv:2503.10150, 2025.
+    
+    \bibitem{jeong2024adaptive}
+    Jeong S, Baek J, Cho S, et al. Adaptive-rag: Learning to Adapt Retrieval-augmented Large Language Models through Question Complexity[C]//NAACL-HLT 2024, 2024: 7036--7050.
+    
+    \bibitem{jiang2023active}
+    Jiang Z, Xu F F, Gao L, et al. Active Retrieval Augmented Generation[C]//EMNLP 2023, 2023: 7969--7992.
+    
+    \bibitem{jiang2025hykge}
+    Jiang X, Zhang R, Xu Y, et al. HyKGE: A Hypothesis Knowledge Graph Enhanced RAG Framework[C]//ACL 2025, 2025: 11836--11856.
+    
+    \bibitem{kovcisky2018narrativeqa}
+    Kočiský T, Schwarz J, Blunsom P, et al. The NarrativeQA Reading Comprehension Challenge[J]. Transactions of the ACL, 2018, 6: 317--328.
+    
+    \bibitem{lewis2020retrieval}
+    Lewis P, Perez E, Piktus A, et al. Retrieval-augmented Generation for Knowledge-intensive NLP Tasks[C]//NeurIPS, 2020, 33: 9459--9474.
+    
+    \bibitem{liu2024ra}
+    Liu Y, Peng X, Zhang X, et al. Ra-isf: Learning to Answer and Understand from Retrieval Augmentation via Iterative Self-feedback[C]//Findings of ACL 2024, 2024: 4730--4749.
+    
+    \bibitem{luo2023reasoning}
+    Luo L, Li Y F, Haffari G, et al. Reasoning on Graphs[J]. arXiv preprint arXiv:2310.01061, 2023.
+    
+    \bibitem{luo2025gfm}
+    Luo L, Zhao Z, Haffari G, et al. GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation[J]. arXiv preprint arXiv:2502.01113, 2025.
+    
+    \bibitem{mallen2023not}
+    Mallen A, Asai A, Zhong V, et al. When Not to Trust Language Models[C]//ACL 2023, 2023: 9802--9822.
+    
+    \bibitem{nguyen2025ma}
+    Nguyen T, Chin P, Tai Y W. Ma-rag: Multi-agent Retrieval-augmented Generation[J]. arXiv preprint arXiv:2505.20096, 2025.
+    
+    \bibitem{openai2025deepresearch}
+    OpenAI. Introducing Deep Research[EB/OL]. 2025. \url{https://openai.com/index/introducing-deep-research/}. Accessed: 2025-12-04.
+    
+    \bibitem{openai2025gpt5}
+    OpenAI. Introducing GPT-5[EB/OL]. 2025. \url{https://openai.com/zh-Hans-CN/index/introducing-gpt-5/}. Accessed: 2026-03-13.
+
+    \bibitem{anthropic2025claudesonnet45}
+    Qian H, Anthropic Team. Introducing Claude Sonnet 4.5[EB/OL]. 2025. \url{https://www.anthropic.com/news/introducing-claude-sonnet-4-5}. Accessed: 2026-03-13.
+    
+    \bibitem{sarthi2024raptor}
+    Sarthi P, Abdullah S, Tuli A, et al. Raptor[C]//ICLR 2024, 2024.
+
+    \bibitem{sun2025dynamicrag}
+    Sun J, Zhong X, Zhou S, et al. DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation[J]. arXiv preprint arXiv:2505.07233, 2025.
+
+    \bibitem{team2025tongyi}
+    Team T D, Li B, Zhang B, et al. Tongyi Deepresearch Technical Report[J]. arXiv preprint arXiv:2510.24701, 2025.
+    
+    \bibitem{trivedi2023interleaving}
+    Trivedi H, Balasubramanian N, Khot T, et al. Interleaving Retrieval with Chain-of-thought[C]//ACL 2023, 2023: 10014--10037.
+    
+    \bibitem{vaswani2017attention}
+    Vaswani A, Shazeer N, Parmar N, et al. Attention Is All You Need[C]//NeurIPS, 2017, 30.
+
+    \bibitem{wang2025infogain}
+    Wang Z, Liang Z, Shao Z, et al. InfoGain-RAG: Boosting Retrieval-Augmented Generation through Document Information Gain-based Reranking and Filtering[C]//Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2025: 7201--7215.
+    
+    \bibitem{xie2023adaptive}
+    Xie J, Zhang K, Chen J, et al. Adaptive Chameleon or Stubborn Sloth[C]//ICLR 2024, 2023.
+    
+    \bibitem{yan2024corrective}
+    Yan S Q, Gu J C, Zhu Y, et al. Corrective Retrieval Augmented Generation[J]. 2024.
+    
+    \bibitem{yang2018hotpotqa}
+    Yang Z, Qi P, Zhang S, et al. HotpotQA[C]//EMNLP 2018, 2018: 2369--2380.
+    
+    \bibitem{yao2022react}
+    Yao S, Zhao J, Yu D, et al. React[C]//ICLR 2023, 2022.
+    
+    \bibitem{zhao2023survey}
+    Zhao W X, Zhou K, Li J, et al. A Survey of Large Language Models[J]. arXiv preprint arXiv:2303.18223, 2023, 1(2): 1--124.
+    
+    \bibitem{zhong2023mquake}
+    Zhong Z, Wu Z, Manning C D, et al. Mquake[C]//EMNLP 2023, 2023: 15686--15702.
+    
+    \bibitem{zhou2025depth}
+    Zhou Y, Su Y, Sun Y, et al. In-depth Analysis of Graph-based RAG[J]. arXiv preprint arXiv:2503.04338, 2025.
+    
+    \bibitem{zhuang2025linearrag}
+    Zhuang L, Chen S, Xiao Y, et al. Linearrag[J]. arXiv preprint arXiv:2510.10114, 2025.
+    
+    \end{thebibliography}
+    
+    \phantomsection
+    \markboth{参考文献}{参考文献}
+    \addcontentsline{toc}{chapter}{参考文献}
 }
 
+%%%%%%%%%% Appendix Numbering %%%%%%%%%%%%%%%%%
+% 附录编号格式设置
+\makeatletter
+\newcommand{\appendixsettings}{
+  % 重置计数器
+  \setcounter{chapter}{0}
+  \setcounter{figure}{0}
+  \setcounter{table}{0}
+  \setcounter{equation}{0}
+  
+  % 修改章节名为"附录X"格式（覆盖format.tex中预定义的格式）
+  \renewcommand{\prechaptername}{附录}
+  \renewcommand{\postchaptername}{}
+  % 重新构造chaptername：去掉\CJKnumber，直接用字母
+  \renewcommand{\chaptername}{\prechaptername\space\thechapter}
+  
+  % 附录章节编号为大写字母：A、B、C...
+  \renewcommand{\thechapter}{\Alph{chapter}}
+  
+  % 修改chapter标题格式，使其在附录中生效
+  \titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{2em}{}
+  
+  % 附录中的图编号格式：图A-1、图A-2...
+  \renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+  
+  % 附录中的表编号格式：表A-1、表A-2...
+  \renewcommand{\thetable}{\thechapter-\arabic{table}}
+  
+  % 附录中的公式编号格式：A-1、A-2...
+  \renewcommand{\theequation}{\thechapter-\arabic{equation}}
+  
+  % 如果需要目录中出现"附录A xxx"
+  \titlecontents{chapter}[2em]{\vspace{.25\baselineskip}\sihao\song}
+               {\hei 附录\thecontentslabel\hspace{14pt}\song}{}
+               {\titlerule*[5pt]{$\cdot$}\sihao\contentspage}
+  
+  % 子图子表编号（如果使用了subcaption包）
+  \@ifpackageloaded{subcaption}{
+    \renewcommand{\thesubfigure}{(\alph{subfigure})}
+    \renewcommand{\thesubtable}{(\alph{subtable})}
+  }{}
+}
 \makeatother

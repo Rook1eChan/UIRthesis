@@ -15,7 +15,7 @@
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
 \usepackage{CJKpunct}                       % 精细调整中文的标点符号
 \usepackage{color}                          % 支持彩色
-\usepackage{colortbl}                       % 支持表格上色
+\usepackage{colortbl}
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
 \usepackage{amssymb}                        % 数学符号生成命令
 \usepackage[below]{placeins}    %允许上一个section的浮动图形出现在下一个section的开始部分,还提供\FloatBarrier命令,使所有未处理的浮动图形立即被处理
@@ -27,6 +27,7 @@
 \usepackage{ccaption}                       % 支持子图的中文标题
 \usepackage{subfig}
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
+
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
 \usepackage{txfonts}                        % 字体宏包
@@ -52,10 +53,13 @@ commentstyle=\color{red!50!green!50!blue!50},
 frame=shadowbox,
 rulesepcolor=\color{red!20!green!20!blue!20}
 }
+
 %支持算法环境
 \usepackage[boxed,ruled,lined,linesnumbered]{algorithm2e}
 \renewcommand{\algorithmcfname}{算法}
 \SetAlFnt{\it}
+
+\usepackage[most]{tcolorbox}
 
 \usepackage{array}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
@@ -78,3 +82,11 @@ rulesepcolor=\color{red!20!green!20!blue!20}
             breaklinks=true
             ]{hyperref}
 \fi
+
+% \usepackage{tikz}
+% \usetikzlibrary{shapes.geometric, arrows, positioning, chains, fit, backgrounds, calc}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds,calc}
+
+\usepackage{float}

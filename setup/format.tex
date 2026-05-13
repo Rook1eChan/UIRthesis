@@ -393,7 +393,6 @@
 % }
 
 %%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%
-% 附录编号格式设置
 \makeatletter
 \newcommand{\appendixsettings}{
   % 重置计数器
@@ -402,36 +401,17 @@
   \setcounter{table}{0}
   \setcounter{equation}{0}
   
-  % 修改章节名为"附录X"格式（覆盖format.tex中预定义的格式）
+  % 修改章节名为"附录X"格式
   \renewcommand{\prechaptername}{附录}
   \renewcommand{\postchaptername}{}
-  % 重新构造chaptername：去掉\CJKnumber，直接用字母
   \renewcommand{\chaptername}{\prechaptername\space\thechapter}
   
-  % 附录章节编号为大写字母：A、B、C...
+  % 附录章节编号为大写字母
   \renewcommand{\thechapter}{\Alph{chapter}}
   
-  % 修改chapter标题格式，使其在附录中生效
-  \titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{2em}{}
-  
-  % 附录中的图编号格式：图A-1、图A-2...
+  % 图、表、公式编号格式
   \renewcommand{\thefigure}{\thechapter-\arabic{figure}}
-  
-  % 附录中的表编号格式：表A-1、表A-2...
   \renewcommand{\thetable}{\thechapter-\arabic{table}}
-  
-  % 附录中的公式编号格式：A-1、A-2...
   \renewcommand{\theequation}{\thechapter-\arabic{equation}}
-  
-  % 如果需要目录中出现"附录A xxx"
-  \titlecontents{chapter}[2em]{\vspace{.25\baselineskip}\sihao\song}
-               {\hei 附录\thecontentslabel\hspace{14pt}\song}{}
-               {\titlerule*[5pt]{$\cdot$}\sihao\contentspage}
-  
-  % 子图子表编号（如果使用了subcaption包）
-  \@ifpackageloaded{subcaption}{
-    \renewcommand{\thesubfigure}{(\alph{subfigure})}
-    \renewcommand{\thesubtable}{(\alph{subtable})}
-  }{}
 }
 \makeatother
